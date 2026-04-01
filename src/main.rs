@@ -43,6 +43,10 @@ fn run(cli: &Cli, config: &config::Config) -> Result<(), AwError> {
         | Command::Put { .. }
         | Command::Delete { .. } => http::execute_request(&cli.command, config),
         Command::Balance => balance::show(config),
+        Command::Skill => {
+            print!("{}", include_str!("../skills/agent-wallet/SKILL.md"));
+            Ok(())
+        }
         Command::Wallet { action } => match action {
             None => wallet::show_pubkey(&config.keypair_path),
             Some(cli::WalletAction::New) => wallet::new_keypair(cli.keypair.as_deref()),

@@ -72,6 +72,12 @@ aw balance                         # Human-readable SOL + USDC
 aw balance --json                  # {"sol":0.142,"usdc":4.23}
 ```
 
+### Skill
+
+```bash
+aw skill                           # Print this skill file (for agent install)
+```
+
 ## Output Contract
 
 This is critical for scripting and piping:

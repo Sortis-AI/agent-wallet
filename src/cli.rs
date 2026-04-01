@@ -67,6 +67,8 @@ pub enum Command {
     },
     /// Show wallet balances (SOL + USDC)
     Balance,
+    /// Print agent-wallet skill install instructions
+    Skill,
     /// Wallet management
     Wallet {
         #[command(subcommand)]
