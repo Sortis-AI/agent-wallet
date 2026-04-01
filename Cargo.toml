@@ -1,0 +1,35 @@
+[package]
+name = "agent-wallet"
+version = "0.1.0"
+edition = "2024"
+description = "MPP-capable Solana wallet CLI for AI agents"
+
+[[bin]]
+name = "aw"
+path = "src/main.rs"
+
+[dependencies]
+# Solana (2.2 = last stable monolith before 3.x/4.x atomic split)
+solana-sdk = "2.2"
+solana-client = "2.2"
+
+# SPL
+spl-token = { version = "7", features = ["no-entrypoint"] }
+spl-associated-token-account = { version = "6", features = ["no-entrypoint"] }
+spl-memo = { version = "5", features = ["no-entrypoint"] }
+
+# HTTP
+reqwest = { version = "0.13.2", features = ["blocking", "rustls"], default-features = false }
+
+# CLI
+clap = { version = "4.6.0", features = ["derive", "env"] }
+
+# Serialization
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.149"
+base64 = "0.22.1"
+bs58 = "0.5.1"
+
+# Error handling
+anyhow = "1.0.102"
+thiserror = "2.0.18"
